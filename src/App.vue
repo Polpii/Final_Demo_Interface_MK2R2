@@ -7,8 +7,8 @@
     <Map/>
     <Sensor/>
     <ModeSelector/>
-    <Stats/>
     <RobotInfos/>
+    <Stats/>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ import Map from './components/Map.vue';
 import ModeSelector from './components/ModeSelector.vue';
 import RobotInfos from './components/RobotInfos.vue';
 import Stats from './components/Stats.vue';
+
 import Stream from './components/Stream.vue';
 import Sensor from './components/Sensor.vue';
 
@@ -33,6 +34,10 @@ export default {
     Sensor,
     Stats,
     Stream,
+  },
+  data() {
+    return {
+    };
   },
 };
 </script>

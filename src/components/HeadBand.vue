@@ -4,6 +4,7 @@
       id="onlineCircle"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-40 -40 80 80"
+      v-aspect-ratio="'1:1'"
       :style="{ 'fill': getColor() }"
     >
       <circle r="39"/>
@@ -64,13 +65,12 @@ export default {
     gap: 10%;
     justify-content: center;
     align-items: center;
-    font-size: 250%;
   }
   #onlineCircle {
     position: absolute;
     top: 12.5%;
-    left: 0%;
-    width:10%;
+    left: 1%;
+    // width:5%;
     height: 75%;
   }
 </style>
