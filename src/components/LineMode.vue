@@ -1,7 +1,7 @@
 <template>
-  <div class="line">
+  <div class="line" v-on:click="changeMode()">
     {{name}}
-    <div v-on:click="ChangeMode()" :class="{ isOn: mode, isOff: !mode }">{{getStatus(mode)}}</div>
+    <div :class="{ isOn: mode, isOff: !mode }">{{getStatus(mode)}}</div>
   </div>
 </template>
 
@@ -10,10 +10,11 @@ export default {
   name: 'LineMode',
   data() {
     return {
-      mode: false,
+      mode: this.$store.state.modeName,
     };
   },
   props: {
+    modeName: String,
     name: String,
   },
   methods: {
@@ -23,8 +24,9 @@ export default {
       }
       return 'OFF';
     },
-    ChangeMode() {
+    changeMode() {
       this.mode = !this.mode;
+      this.$store.commit(this.modeName);
     },
   },
 };
@@ -33,39 +35,54 @@ export default {
 <style scoped lang='scss'>
 .line {
   position: relative;
+  border-bottom: solid 1px #c5c5c565;;
   padding: 2%;
   font-size: 200%;
-  width: 100%;
-  height: 8.4%;
+  width: 96%;
+  height: 8%;
+  font-weight: bold;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($color: #000000, $alpha: 0.03);
+  }
 }
 .isOn {
   z-index: 1;
   position: absolute;
   height: 50%;
-  right: 10%;
+  right: 15%;
   top: 10%;
+  transition: .3s;
+  font-weight: normal !important;
   &:hover {
     cursor: pointer;
   }
-  text-shadow:
-    0 0 .25rem green,
-    0 0 .5rem green,
-    0 0 1rem green,
-    0 0 1rem green;
+  color: green;
+  // text-shadow:
+  //   0 0 .25rem green,
+  //   // 0 0 .5rem green,
+  //   // 0 0 1rem green,
+  //   // 0 0 1rem green;
 }
 .isOff {
   z-index: 1;
   position: absolute;
   height: 50%;
-  right: 10%;
+  right: 15%;
   top: 10%;
+  transition: .3s;
+  font-weight: normal !important;
   &:hover {
     cursor: pointer;
   }
-  text-shadow:
-    0 0 .25rem red,
-    0 0 .5rem red,
-    0 0 1rem red,
-    0 0 1rem red;
+  color: red;
+  // text-shadow:
+  //   0 0 .25rem red,
+  //   // 0 0 .5rem red,
+  //   // 0 0 1rem red,
+  //   // 0 0 1rem red;
 }
 </style>

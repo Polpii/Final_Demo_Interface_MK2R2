@@ -56,7 +56,11 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  opacity: 1;
+  z-index: 1;
+  transition: .2s;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 #Left{
   top: 42.5%;
@@ -111,11 +115,15 @@ export default {
 }
 #Center{
   position: absolute;
-  z-index: 10;
+  z-index: 1;
   width: 40%;
   height: 40%;
   right: 30%;
   bottom: 30%;
   cursor: pointer;
+  transition: .2s;
+  &:hover {
+    opacity: 0.6;
+  }
 }
 </style>

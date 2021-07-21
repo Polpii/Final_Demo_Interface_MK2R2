@@ -1,0 +1,16 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="-75" x2="300" y1="0" x1="0" fill="none"/>
+  <path fill="none" stroke="#000" opacity="NaN" d="m12,154" id="svg_5"/>
+  <path fill="none" stroke="#000" opacity="NaN" d="m468.73508,73.03103" id="svg_24"/>
+  <g id="svg_3">
+   <path fill="none" opacity="NaN" d="m325.99999,103.93643c84.97061,-56.09224 148.32589,1.31982 148.32589,1.31982" id="svg_8" stroke="#000"/>
+   <line fill="none" x1="343.22955" y1="172" x2="326.22955" y2="104" id="svg_9" stroke="#000"/>
+   <line stroke="#000" fill="none" x1="457.22955" y1="172.46184" x2="474.22955" y2="104" id="svg_10"/>
+   <path fill="none" opacity="NaN" d="m343.36977,171.39088c65.44912,-39.72924 114.2489,0.93481 114.2489,0.93481" id="svg_11" stroke="#000"/>
+   <path fill="none" opacity="NaN" d="m343.36977,171.39088c65.44912,-39.72924 114.2489,0.93481 114.2489,0.93481" id="svg_21" stroke="#000"/>
+  </g>
+ </g>
+
+</svg>

@@ -4,12 +4,14 @@ body, html {
   margin: 0px 0px 0px 0px;
   padding: 0px;
   background-color: #ffffff;
+  overflow: hidden;
 }
 #app {
   height: 100vh;
   font-family: 'Poppins', sans-serif;
   color: rgb(0, 0, 0);
-  font-size: 70%;
+  // font-size: %;
+  font-size: 1vh;
 }
 #logo {
   position:absolute;
