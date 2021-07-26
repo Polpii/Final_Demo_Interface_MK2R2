@@ -1,32 +1,31 @@
 <template>
   <div class="line" v-on:click="changeMode()">
     {{name}}
-    <div :class="{ isOn: mode, isOff: !mode }">{{getStatus(mode)}}</div>
+    <div
+      :class="{ isOn: this.$store.state.modeTable[this.modeName] === 1,
+                isOff: this.$store.state.modeTable[this.modeName] === 0 }"
+    >
+      {{getStatus()}}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'LineMode',
-  data() {
-    return {
-      mode: this.$store.state.modeName,
-    };
-  },
   props: {
-    modeName: String,
+    modeName: Number,
     name: String,
   },
   methods: {
-    getStatus(mode) {
-      if (mode) {
+    getStatus() {
+      if (this.$store.state.modeTable[this.modeName] === 1) {
         return 'ON';
       }
       return 'OFF';
     },
     changeMode() {
-      this.mode = !this.mode;
-      this.$store.commit(this.modeName);
+      this.$store.commit('changingMode', this.modeName);
     },
   },
 };

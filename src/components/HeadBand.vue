@@ -9,10 +9,10 @@
     >
       <circle r="39"/>
     </svg>
-    <h1>Status : {{getStatus()}}</h1>
-    <h1>Name : {{name}}</h1>
-    <h1>IP : {{ip}}</h1>
-    <h1>Ping : {{ping}}</h1>
+    <h2>Status : {{getStatus()}}</h2>
+    <h2>Name : {{this.$store.state.robotName}}</h2>
+    <h2>IP : {{this.$store.state.robotIP}}</h2>
+    <h2>Ping : {{this.$store.state.robotPing}}</h2>
   </div>
 </template>
 
@@ -24,21 +24,15 @@ export default {
       statusString: '',
     };
   },
-  props: {
-    status: Boolean,
-    name: String,
-    ip: String,
-    ping: Number,
-  },
   methods: {
     getColor() {
-      if (this.status) {
+      if (this.$store.state.robotOnline) {
         return 'green';
       }
       return 'red';
     },
     getStatus() {
-      if (this.status) {
+      if (this.$store.state.robotOnline) {
         return 'Online';
       }
       return 'Offline';

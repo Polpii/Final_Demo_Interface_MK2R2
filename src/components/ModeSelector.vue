@@ -1,12 +1,12 @@
 <template>
   <div class="mode">
-    <Mode name="WAITING" modeName="waitingMode"/>
-    <Mode name="MANUAL" modeName="manualMode"/>
-    <Mode name="FOLLOW" modeName="followMode"/>
-    <Mode name="HOME" modeName="homeMode"/>
-    <Mode name="GUIDE" modeName="guideMode"/>
-    <Mode name="CLEANING" modeName="cleaningMode"/>
-    <Mode id='last' name="SURVEILLANCE" modeName="surveillanceMode"/>
+    <Mode name="WAITING" :modeName="0"/>
+    <Mode name="MANUAL" :modeName="1"/>
+    <Mode name="FOLLOW" :modeName="2"/>
+    <Mode name="HOME" :modeName="3"/>
+    <Mode name="GUIDE" :modeName="4"/>
+    <Mode name="CLEANING" :modeName="5"/>
+    <Mode id='last' name="SURVEILLANCE" :modeName="6"/>
   </div>
 </template>
 

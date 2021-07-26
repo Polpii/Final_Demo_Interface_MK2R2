@@ -1,6 +1,6 @@
 <template>
   <div class="waiting">
-    <p id="command">Give a command to {{this.name}} ! </p>
+    <p id="command">{{getMessage()}}</p>
     <div class="point">D</div>
     <div class="point">E</div>
     <div class="point">V</div>
@@ -11,8 +11,13 @@
 <script>
 export default {
   name: 'Waiting',
-  props: {
-    name: String,
+  methods: {
+    getMessage() {
+      if (this.$store.state.robotOnline) {
+        return `Give a command to ${this.$store.state.robotName} !`;
+      }
+      return 'Turn ON a robot !';
+    },
   },
 };
 </script>

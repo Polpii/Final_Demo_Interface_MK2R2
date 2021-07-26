@@ -1,27 +1,26 @@
 <template>
   <div id="app" v-aspect-ratio="'16:9'">
     <img id="logo" src="./assets/DVIC_logo/dvic-large.png">
-    <HeadBand :status='false' name="MK2R2" ip="172.21.72.151" :ping="534"/>
+    <HeadBand/>
     <Hour/>
-    <Stream url="https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY"/>
+    <Stream :url="this.$store.state.url"/>
     <Map/>
-    <Sensors :front="1" :fLeft="0" :fRight="3" :back="2" :bLeft="2" :bRight="3"/>
-    <ModeSelector/>
-    <Waiting name='MK2R2' v-show="this.$store.state.waitingMode"/>
-    <Manual v-show="this.$store.state.manualMode"/>
-    <Follow v-show="this.$store.state.followMode"/>
-    <Home pourcent="0" v-show="this.$store.state.homeMode"/>
-    <Guide v-show="this.$store.state.guideMode"/>
-    <RobotInfos/>
-    <Stats
-      volt="15"
-      heatCore="32"
-      esp32_A="ON"
-      esp32_B="ON"
-      slam="WORKING"
-      speed="7.8"
-      timeUsed="32"
+    <Sensors
+      :front="this.$store.state.sensors[0]"
+      :fLeft="this.$store.state.sensors[1]"
+      :fRight="this.$store.state.sensors[2]"
+      :back="this.$store.state.sensors[3]"
+      :bLeft="this.$store.state.sensors[4]"
+      :bRight="this.$store.state.sensors[5]"
     />
+    <ModeSelector/>
+    <Waiting v-show="this.$store.state.modeTable[0] === 1"/>
+    <Manual v-show="this.$store.state.modeTable[1] === 1"/>
+    <Follow v-show="this.$store.state.modeTable[2] === 1"/>
+    <Home pourcent="0" v-show="this.$store.state.modeTable[3] === 1"/>
+    <Guide v-show="this.$store.state.modeTable[4] === 1"/>
+    <RobotInfos/>
+    <Stats/>
   </div>
 </template>
 
