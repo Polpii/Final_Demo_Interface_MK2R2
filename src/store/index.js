@@ -14,6 +14,9 @@ export default new Vuex.Store({
     robotIP: '172.21.72.151',
     robotPing: 533,
 
+    // pourcent hom mode
+    homePourcent: '0',
+
     // stream URL
     url: 'https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY',
 
@@ -32,6 +35,9 @@ export default new Vuex.Store({
   mutations: {
     allMode() {
       this.state.modeTable = [0, 0, 0, 0, 0, 0, 0];
+    },
+    plus(state) {
+      state.homePourcent += 1;
     },
     changingMode(state, mode) {
       if (this.state.modeTable[mode] === 1) {

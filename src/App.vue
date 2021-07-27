@@ -17,7 +17,11 @@
     <Waiting v-show="this.$store.state.modeTable[0] === 1"/>
     <Manual v-show="this.$store.state.modeTable[1] === 1"/>
     <Follow v-show="this.$store.state.modeTable[2] === 1"/>
-    <Home pourcent="0" v-show="this.$store.state.modeTable[3] === 1"/>
+    <Home
+      v-on:click="plus()"
+      :pourcent="this.$store.state.homePourcent"
+      v-show="this.$store.state.modeTable[3] === 1"
+    />
     <Guide v-show="this.$store.state.modeTable[4] === 1"/>
     <RobotInfos/>
     <Stats/>
@@ -59,6 +63,11 @@ export default {
   data() {
     return {
     };
+  },
+  methods: {
+    plus() {
+      this.$store.commit('plus');
+    },
   },
 };
 </script>
