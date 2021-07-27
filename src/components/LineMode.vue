@@ -18,6 +18,16 @@ export default {
     name: String,
   },
   methods: {
+    navigation() {
+      const url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/manual/0`;
+      this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
+        .then((resp) => {
+          console.log(resp.data);
+        }).catch((error) => {
+          console.log(error);
+        });
+      this.show = false;
+    },
     getStatus() {
       if (this.$store.state.modeTable[this.modeName] === 1) {
         return 'ON';
@@ -25,6 +35,9 @@ export default {
       return 'OFF';
     },
     changeMode() {
+      if (this.name === 'WAITING' && !this.$store.state.modeTable[0]) {
+        this.navigation();
+      }
       this.$store.commit('changingMode', this.modeName);
     },
   },
