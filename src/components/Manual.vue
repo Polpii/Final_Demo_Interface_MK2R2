@@ -17,12 +17,30 @@
 </template>
 
 <script>
+import axios from 'axios';
+import Vue from 'vue';
+
+Vue.prototype.$http = axios;
+
 export default {
   name: 'RobotInfos',
   props: {
     ip: String,
   },
   methods: {
+    navigation(coordinates) {
+      if (coordinates === 'manual') {
+        this.manualMode = true;
+      }
+      const url = `http://127.0.0.1:5000/${coordinates}`;
+      this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
+        .then((resp) => {
+          console.log(resp.data);
+        }).catch((error) => {
+          console.log(error);
+        });
+      this.show = false;
+    },
   },
 };
 </script>
