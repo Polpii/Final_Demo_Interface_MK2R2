@@ -1,7 +1,7 @@
 <template>
   <div class="line">
     {{name}}
-    <div id="go" v-on:click="changeMode(this.name)" :class="{ going: !going}">GO</div>
+    <div id="go" v-on:click="changeMode(name)" :class="{ going: !going}">GO</div>
   </div>
 </template>
 
@@ -18,11 +18,16 @@ export default {
     name: String,
   },
   methods: {
-    navigation(coordinates) {
+    navigation(coordinates, stop = false) {
       if (coordinates === 'manual') {
         this.manualMode = true;
       }
-      const url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/position/${coordinates}`;
+      let url = '';
+      if (stop) {
+        url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/manual/${coordinates}`;
+      } else {
+        url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/position/${coordinates}`;
+      }
       this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then((resp) => {
           console.log(resp.data);
@@ -36,8 +41,10 @@ export default {
     },
     changeMode(coordinates) {
       this.going = !this.going;
-      if (going) {
+      if (!this.going) {
         this.navigation(coordinates);
+      } else {
+        this.navigation('0', true);
       }
     },
   },

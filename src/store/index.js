@@ -10,7 +10,7 @@ export default new Vuex.Store({
 
     // identifications
     robotOnline: true,
-    robotName: 'MK2R2',
+    robotName: 'MK2R2_1',
     robotIP: '172.21.72.151',
     robotPing: 533,
 
