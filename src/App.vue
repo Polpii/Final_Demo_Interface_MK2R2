@@ -4,6 +4,7 @@
     <HeadBand/>
     <Hour/>
     <Stream :url="this.$store.state.url"/>
+    <ListenSocket/>
     <Map/>
     <Sensors
       :front="this.$store.state.sensors[0]"
@@ -34,6 +35,7 @@ import Guide from './components/Guide.vue';
 import HeadBand from './components/HeadBand.vue';
 import Home from './components/Home.vue';
 import Hour from './components/Hour.vue';
+import ListenSocket from './components/ListenSocket.vue';
 import Manual from './components/Manual.vue';
 import Map from './components/Map.vue';
 import ModeSelector from './components/ModeSelector.vue';
@@ -51,6 +53,7 @@ export default {
     HeadBand,
     Home,
     Hour,
+    ListenSocket,
     Manual,
     Map,
     ModeSelector,
