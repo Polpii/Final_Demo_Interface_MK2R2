@@ -32,7 +32,7 @@ export default {
       if (coordinates === 'manual') {
         this.manualMode = true;
       }
-      const url = `http://127.0.0.1:5000/${coordinates}`;
+      const url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/manual/${coordinates}`;
       this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then((resp) => {
           console.log(resp.data);
