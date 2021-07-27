@@ -1,15 +1,11 @@
 <template>
   <div class="headband">
-    <svg
-      id="onlineCircle"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-40 -40 80 80"
-      v-aspect-ratio="'1:1'"
-      :style="{ 'fill': getColor() }"
-    >
-      <circle r="39"/>
-    </svg>
-    <h2>Status : {{getStatus()}}</h2>
+    <div class="status">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="heartbeat">
+        <circle cx="50" cy="50" r="50" :style="{ 'fill': getColor() }" />
+      </svg>
+      <h2>Status : {{getStatus()}}</h2>
+    </div>
     <h2>Name : {{this.$store.state.robotName}}</h2>
     <h2>IP : {{this.$store.state.robotIP}}</h2>
     <h2>Ping : {{this.$store.state.robotPing}}</h2>
@@ -60,11 +56,38 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  #onlineCircle {
-    position: absolute;
-    top: 12.5%;
-    left: 1%;
-    // width:5%;
-    height: 75%;
+  .status {
+    display: flex;
+    .heartbeat {
+      width: 50px;
+      animation: heartbeat 1.5s ease-in-out infinite both;
+    }
+    h2 {
+      margin-left: 20px;
+      display: inline-block;
+    }
   }
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  23% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
 </style>

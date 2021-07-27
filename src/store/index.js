@@ -9,7 +9,7 @@ export default new Vuex.Store({
     modeTable: [1, 0, 0, 0, 0, 0, 0],
 
     // identifications
-    robotOnline: false,
+    robotOnline: true,
     robotName: 'MK2R2',
     robotIP: '172.21.72.151',
     robotPing: 533,

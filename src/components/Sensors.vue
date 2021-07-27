@@ -1,12 +1,14 @@
 <template>
   <div class="sensors">
     <img id="robot" src="../assets/robot.png">
-    <Sensor class="sensor front" :alert="front"/>
-    <Sensor class="sensor fLeft" :alert="fLeft"/>
-    <Sensor class="sensor fRight" :alert="fRight"/>
-    <Sensor class="sensor back" :alert="back"/>
-    <Sensor class="sensor bLeft" :alert="bLeft"/>
-    <Sensor class="sensor bRight" :alert="bRight"/>
+      <div class="sensors-wrapper">
+        <Sensor class="sensor front" :alert="front"/>
+        <Sensor class="sensor fLeft" :alert="fLeft"/>
+        <Sensor class="sensor fRight" :alert="fRight"/>
+        <Sensor class="sensor back" :alert="back"/>
+        <Sensor class="sensor bLeft" :alert="bLeft"/>
+        <Sensor class="sensor bRight" :alert="bRight"/>
+    </div>
   </div>
 </template>
 
@@ -42,18 +44,29 @@ export default {
   border-style: solid;
   // display: flex;
   // justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #robot {
+  z-index: 1;
   position: absolute;
-  left: 46%;
-  top: 12vh;
-  width: 10%;
+  //left: 46%;
+  //left: 120px;
+  //top: 12vh;
+  //top: 122px;
+  width: 50px;
   height: 10%;
+}
+.sensors-wrapper {
+  height: 210px;
+  width: 100%;
 }
 .sensor {
   margin: 1%;
   position: absolute;
-  width: 14%;
+  //width: 14%;
+  width: 45px;
   left: 43%;
   text-align: center;
 }
