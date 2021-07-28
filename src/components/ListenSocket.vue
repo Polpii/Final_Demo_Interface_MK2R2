@@ -56,10 +56,13 @@ export default {
       this.$store.commit('updatePositionPoint', socket.position);
     });
     this.socket.on('received_image', (image) => {
-      const arrayBufferView = new Uint8Array(image);
-      const blob = new Blob([arrayBufferView], { type: 'image/png' });
-      const urlCreator = window.URL || window.webkitURL;
-      const imageUrl = urlCreator.createObjectURL(blob);
+      let binary = '';
+      const bytes = new Uint8Array(image.image_data);
+      const len = bytes.byteLength;
+      for (let i = 0; i < len; i += 1) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      const imageUrl = window.btoa(binary);
       this.$store.commit('updateMapUrl', imageUrl);
       // var img = document.querySelector( "#photo" );
       // img.src = imageUrl;
