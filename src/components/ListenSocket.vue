@@ -1,47 +1,56 @@
 <template>
-  <div class="infos">
-    <p v-if="isConnected">We're connected to the server!</p>
-    <p>Message from server: "{{socketMessage}}"</p>
-    <button @click="pingServer()">Ping Server</button>
+  <div id="app">
   </div>
 </template>
 
 <script>
+const io = require('socket.io-client');
+const users = require('@/assets//users');
+
 export default {
-  data() {
-    return {
-      isConnected: false,
-      socketMessage: '',
-    };
-  },
-
-  sockets: {
-    connect() {
-      // Fired when the socket connects.
-      this.isConnected = true;
-    },
-
-    disconnect() {
-      this.isConnected = false;
-    },
-
-    // Fired when the server sends something on the "messageChannel" channel.
-    messageChannel(data) {
-      this.socketMessage = data;
-    },
-  },
-
+  name: 'Chat',
   methods: {
-    pingServer() {
-      // Send the "pingServer" event to the server.
-      this.$socket.emit('pingServer', 'PING!');
+    sendMessage(e) {
+      e.preventDefault();
+
+      this.socket.emit('SEND_MESSAGE', {
+        color: '#abc',
+        user: 'User 4',
+        msg: this.message,
+      });
+
+      this.message = '';
+
+      console.log('message send to websocket server');
     },
+
+    ping_service() {
+      if (this.user !== null) {
+        clearTimeout(this.ping_timeout);
+        console.log('ping_timeout', this.ping_timeout);
+
+        this.ping_timeout = setTimeout(() => {
+          users.ping(this.user);
+          this.ping_service();
+        }, 1000);
+      }
+    },
+  },
+
+  computed: {
+    socket() {
+      const query = {};
+      return io('localhost:2345', {
+        query,
+      });
+    },
+  },
+
+  mounted() {
+    this.socket.on('MESSAGE', (socket) => {
+      // this.messages = JSON.parse(socket);
+      console.log(socket);
+    });
   },
 };
 </script>
-
-<style scoped lang='scss'>
-  .infos {
-    z-index: 1;
-  }
-</style>
