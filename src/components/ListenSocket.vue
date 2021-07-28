@@ -46,7 +46,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     this.socket.emit('interface', 'interface_DVIC');
     this.socket.on('MESSAGE', (socket) => {
       if (socket.mode === 'waiting') {
