@@ -5,7 +5,6 @@
 
 <script>
 const io = require('socket.io-client');
-const users = require('@/assets//users');
 
 export default {
   name: 'Chat',
@@ -30,7 +29,6 @@ export default {
         console.log('ping_timeout', this.ping_timeout);
 
         this.ping_timeout = setTimeout(() => {
-          users.ping(this.user);
           this.ping_service();
         }, 1000);
       }
@@ -55,6 +53,7 @@ export default {
       this.$store.commit('updateSensors', socket.sensors);
       this.$store.commit('updateStats', socket.stats);
       this.$store.commit('updateInfos', socket.infos);
+      this.$store.commit('updatePositionPoint', socket.position);
     });
   },
 };

@@ -3,9 +3,9 @@
     <img id="logo" src="./assets/DVIC_logo/dvic-large.png">
     <HeadBand/>
     <Hour/>
-    <Stream :url="this.$store.state.url"/>
+    <Stream :url="this.$store.state.streamUrl"/>
     <ListenSocket/>
-    <Map/>
+    <Map :url="this.$store.state.mapUrl"/>
     <Sensors
       :left="this.$store.state.sensors[0]"
       :fLeft="this.$store.state.sensors[1]"

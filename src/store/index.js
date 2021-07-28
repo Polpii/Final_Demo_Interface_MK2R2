@@ -14,11 +14,14 @@ export default new Vuex.Store({
     robotIP: '172.21.72.151',
     robotPing: 0,
 
-    // pourcent hom mode
+    // pourcent home mode
     homePourcent: '0',
 
-    // stream URL
-    url: 'https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY',
+    // URL
+    streamUrl: 'https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY',
+    mapUrl: 'https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY',
+    // map position
+    position: [50, 50],
 
     // stats informations
     volt: '0',
@@ -67,6 +70,9 @@ export default new Vuex.Store({
       state.robotName = infos.name;
       state.robotIP = infos.ip;
       state.robotPing = infos.ping;
+    },
+    updatePositionPoint(state, position) {
+      state.position = position;
     },
   },
   actions: {
