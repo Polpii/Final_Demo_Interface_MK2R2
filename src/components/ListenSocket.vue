@@ -61,9 +61,6 @@ export default {
       const urlCreator = window.URL || window.webkitURL;
       const imageUrl = urlCreator.createObjectURL(blob);
       this.$store.commit('updateMapUrl', imageUrl);
-      // var img = document.querySelector( "#photo" );
-      // img.src = imageUrl;
-      // console.log(image.image_data);
     });
   },
 };
