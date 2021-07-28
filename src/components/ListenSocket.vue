@@ -55,6 +55,9 @@ export default {
       this.$store.commit('updateInfos', socket.infos);
       this.$store.commit('updatePositionPoint', socket.position);
     });
+    this.socket.on('received_image', (image) => {
+      console.log(image);
+    });
   },
 };
 </script>
