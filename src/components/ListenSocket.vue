@@ -45,16 +45,8 @@ export default {
       });
     },
   },
-  watch: {
-    user: {
-      handler() {
-        this.ping_service();
-      },
-      deep: true,
-    },
-  },
 
-  mounted() {
+  created() {
     this.socket.emit('interface', 'interface_DVIC');
     this.socket.on('MESSAGE', (socket) => {
       if (socket.mode === 'waiting') {
