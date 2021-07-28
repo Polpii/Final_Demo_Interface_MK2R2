@@ -19,7 +19,7 @@ export default new Vuex.Store({
 
     // URL
     streamUrl: 'https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY',
-    mapUrl: 'http://127.0.0.1/robot/sendmap',
+    mapUrl: '',
     // map position
     position: [50, 50],
 
@@ -73,6 +73,9 @@ export default new Vuex.Store({
     },
     updatePositionPoint(state, position) {
       state.position = position;
+    },
+    updateMapUrl(state, url) {
+      state.mapUrl = url;
     },
   },
   actions: {
