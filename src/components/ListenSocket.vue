@@ -45,6 +45,14 @@ export default {
       });
     },
   },
+  watch: {
+    user: {
+      handler() {
+        this.ping_service();
+      },
+      deep: true,
+    },
+  },
 
   mounted() {
     this.socket.emit('interface', 'interface_DVIC');
