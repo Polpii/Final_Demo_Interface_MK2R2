@@ -9,10 +9,10 @@ export default new Vuex.Store({
     modeTable: [1, 0, 0, 0, 0, 0, 0],
 
     // identifications
-    robotOnline: true,
+    robotOnline: false,
     robotName: 'MK2R2_1',
     robotIP: '172.21.72.151',
-    robotPing: 533,
+    robotPing: 0,
 
     // pourcent hom mode
     homePourcent: '0',
@@ -30,7 +30,7 @@ export default new Vuex.Store({
     timeUsed: '~',
 
     // left fLeft fRight right bLeft back bRight
-    sensors: [1, 1, 2, 3, 0, 1, 2],
+    sensors: [0, 0, 0, 0, 0, 0, 0],
   },
   mutations: {
     allMode() {

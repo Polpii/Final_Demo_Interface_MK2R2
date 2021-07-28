@@ -40,7 +40,7 @@ export default {
   computed: {
     socket() {
       const query = {};
-      return io('localhost:2345', {
+      return io('localhost:5000', {
         query,
       });
     },
