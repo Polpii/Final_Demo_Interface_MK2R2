@@ -47,9 +47,14 @@ export default {
   },
 
   mounted() {
+    this.socket.emit('interface', 'interface_DVIC');
     this.socket.on('MESSAGE', (socket) => {
-      // this.messages = JSON.parse(socket);
-      console.log(socket);
+      if (socket.mode === 'waiting') {
+        this.$store.commit('startWaiting');
+      }
+      this.$store.commit('updateSensors', socket.sensors);
+      this.$store.commit('updateStats', socket.stats);
+      this.$store.commit('updateInfos', socket.infos);
     });
   },
 };

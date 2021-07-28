@@ -2,11 +2,12 @@
   <div class="sensors">
     <img id="robot" src="../assets/robot.png">
       <div class="sensors-wrapper">
-        <Sensor class="sensor front" :alert="front"/>
+        <Sensor class="sensor left" :alert="left"/>
         <Sensor class="sensor fLeft" :alert="fLeft"/>
         <Sensor class="sensor fRight" :alert="fRight"/>
-        <Sensor class="sensor back" :alert="back"/>
+        <Sensor class="sensor right" :alert="right"/>
         <Sensor class="sensor bLeft" :alert="bLeft"/>
+        <Sensor class="sensor back" :alert="back"/>
         <Sensor class="sensor bRight" :alert="bRight"/>
     </div>
   </div>
@@ -21,7 +22,8 @@ export default {
     Sensor,
   },
   props: {
-    front: Number,
+    left: Number,
+    right: Number,
     fLeft: Number,
     fRight: Number,
     back: Number,
@@ -70,13 +72,21 @@ export default {
   left: 43%;
   text-align: center;
 }
+.left {
+  transform-origin: bottom;
+  transform: rotate(-20deg);
+}
+.right {
+  transform-origin: bottom;
+  transform: rotate(20deg);
+}
 .fLeft {
   transform-origin: bottom;
-  transform: rotate(-45deg);
+  transform: rotate(-60deg);
 }
 .fRight {
   transform-origin: bottom;
-  transform: rotate(45deg);
+  transform: rotate(60deg);
 }
 .back {
   transform-origin: bottom;

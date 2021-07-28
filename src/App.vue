@@ -7,12 +7,13 @@
     <ListenSocket/>
     <Map/>
     <Sensors
-      :front="this.$store.state.sensors[0]"
+      :left="this.$store.state.sensors[0]"
       :fLeft="this.$store.state.sensors[1]"
       :fRight="this.$store.state.sensors[2]"
-      :back="this.$store.state.sensors[3]"
+      :right="this.$store.state.sensors[3]"
       :bLeft="this.$store.state.sensors[4]"
-      :bRight="this.$store.state.sensors[5]"
+      :back="this.$store.state.sensors[5]"
+      :bRight="this.$store.state.sensors[6]"
     />
     <ModeSelector/>
     <Waiting v-show="this.$store.state.modeTable[0] === 1"/>

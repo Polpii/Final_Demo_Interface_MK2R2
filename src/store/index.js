@@ -29,8 +29,8 @@ export default new Vuex.Store({
     speed: '0',
     timeUsed: '~',
 
-    // front fLeft fRight back bLeft bRight
-    sensors: [1, 2, 3, 0, 1, 2],
+    // left fLeft fRight right bLeft back bRight
+    sensors: [1, 1, 2, 3, 0, 1, 2],
   },
   mutations: {
     allMode() {
@@ -46,6 +46,27 @@ export default new Vuex.Store({
         this.state.modeTable = [0, 0, 0, 0, 0, 0, 0];
         this.state.modeTable[mode] = 1;
       }
+    },
+    startWaiting(state) {
+      state.modeTable = [1, 0, 0, 0, 0, 0, 0];
+    },
+    updateSensors(state, sensors) {
+      state.sensors = sensors;
+    },
+    updateStats(state, stats) {
+      state.volt = stats.volt;
+      state.heatCore = stats.heatCore;
+      state.esp32_A = stats.esp32_A;
+      state.esp32_B = stats.esp32_B;
+      state.slam = stats.slam;
+      state.speed = stats.speed;
+      state.timeUsed = stats.timeUsed;
+    },
+    updateInfos(state, infos) {
+      state.robotOnline = infos.status;
+      state.robotName = infos.name;
+      state.robotIP = infos.ip;
+      state.robotPing = infos.ping;
     },
   },
   actions: {
