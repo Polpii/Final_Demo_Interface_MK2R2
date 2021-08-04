@@ -6,7 +6,7 @@
       </svg>
       <h2>Status : {{getStatus()}}</h2>
     </div>
-    <h2>Name : {{this.$store.state.robotName}}</h2>
+    <h2>Name : {{name}}</h2>
     <h2>IP : {{this.$store.state.robotIP}}</h2>
     <h2>Ping : {{this.$store.state.robotPing}}</h2>
   </div>
@@ -19,6 +19,9 @@ export default {
     return {
       statusString: '',
     };
+  },
+  props: {
+    name: String,
   },
   methods: {
     getColor() {

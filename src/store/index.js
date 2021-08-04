@@ -8,6 +8,8 @@ export default new Vuex.Store({
     // waiting manual follow home guide cleaning surveillance
     modeTable: [1, 0, 0, 0, 0, 0, 0],
 
+    // choice in the guide mode
+    guideTable: [0, 0, 0, 0, 0, 0, 0],
     // identifications
     robotOnline: false,
     robotName: 'MK2R2_1',
@@ -20,6 +22,7 @@ export default new Vuex.Store({
     // URL
     streamUrl: 'https://i.picsum.photos/id/554/200/200.jpg?hmac=wvBDWVN6iXLUYv4DYpQ9fWSg_2y3dCYyzy4N_6H26pY',
     mapUrl: '',
+
     // map position
     position: [50, 50],
 
