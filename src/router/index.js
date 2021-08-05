@@ -4,31 +4,34 @@ import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
-// const routes = [
-//   {
-//     path: '/',
-//     component: Home,
-//   },
-// ];
+const routes = [
+  {
+    path: '/:id?',
+    component: Home,
+    // props: { name: `${route.params}` },
+  },
+];
 
 const router = new VueRouter({
-  routes: [
-    { path: '/', component: Home, props: true },
+  // routes: [
+  //   { path: '/', component: Home, props: true },
 
-    // for routes with named views, you have to define the `props` option for each named view:
-    {
-      path: '/',
-      components: {
-        default: Home,
-      },
-      props: {
-        default: true,
-        // function mode, more about it below
-        name: (route) => ({ search: route.query.q }),
-      },
-    },
-  ],
-  // routes,
+  //   // for routes with named views, you have to define the `props` option for each named view:
+  //   {
+  //     path: '/:id?',
+  //     components: {
+  //       default: Home,
+  //       // props: { name: 'rrrrr' },
+  //     },
+  //     // props: {
+  //     //   default: true,
+  //     //   // function mode, more about it below
+  //     //   name: 'rrrr',
+  //     //   // name: (route) => ({ search: route.query.q }),
+  //     // },
+  //   },
+  // ],
+  routes,
 });
 
 export default router;
