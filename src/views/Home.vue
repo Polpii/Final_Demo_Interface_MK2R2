@@ -1,6 +1,5 @@
 <template>
   <div id="app" v-aspect-ratio="'16:9'">
-    <p>{{this.$route.params }}</p>
     <img id="logo" src="../assets/DVIC_logo/dvic-large.png">
     <HeadBand :name="`${this.$route.params.id}`"/>
     <Hour/>
