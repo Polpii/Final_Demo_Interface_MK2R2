@@ -38,14 +38,17 @@ export default {
   computed: {
     socket() {
       const query = {};
-      return io('localhost:5000', {
+      return io('https://api-devo-docker.herokuapp.com', {
         query,
       });
+      // return io('http://127.0.0.1:5000', {
+      //   query,
+      // });
     },
   },
 
   mounted() {
-    this.socket.emit('interface', 'interface_DVIC');
+    this.socket.emit('interface', this.$route.params.id);
     this.socket.on('MESSAGE', (socket) => {
       if (socket.mode === 'waiting') {
         this.$store.commit('startWaiting');

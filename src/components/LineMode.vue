@@ -19,7 +19,8 @@ export default {
   },
   methods: {
     navigation() {
-      const url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/manual/0`;
+      // const url = `http://127.0.0.1:5000/api/robot/${this.$route.params.id}/manual/0`;
+      const url = `https://api-devo-docker.herokuapp.com/api/robot/${this.$route.params.id}/manual/0`;
       this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then((resp) => {
           console.log(resp.data);

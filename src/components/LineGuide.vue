@@ -24,9 +24,11 @@ export default {
       }
       let url = '';
       if (stop) {
-        url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/manual/${coordinates}`;
+        // url = `http://127.0.0.1:5000/api/robot/${this.$route.params.id}/manual/${coordinates}`;
+        url = `https://api-devo-docker.herokuapp.com/api/robot/${this.$route.params.id}/manual/${coordinates}`;
       } else {
-        url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/position/${coordinates}`;
+        // url = `http://127.0.0.1:5000/api/robot/${this.$route.params.id}/position/${coordinates}`;
+        url = `https://api-devo-docker.herokuapp.com/api/robot/${this.$route.params.id}/position/${coordinates}`;
       }
       this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then((resp) => {

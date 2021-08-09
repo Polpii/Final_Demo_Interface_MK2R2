@@ -32,7 +32,9 @@ export default {
       if (coordinates === 'manual') {
         this.manualMode = true;
       }
-      const url = `http://127.0.0.1:5000/robot/${this.$store.state.robotName}/manual/${coordinates}`;
+      // const url = `http://127.0.0.1:5000/api/robot/${this.$route.params.id}/manual/${coordinates}`;
+      const url = `https://api-devo-docker.herokuapp.com/api/robot/${this.$route.params.id}/manual/${coordinates}`;
+      console.log(url);
       this.$axios.get(url, { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then((resp) => {
           console.log(resp.data);

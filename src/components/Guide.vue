@@ -1,9 +1,9 @@
 <template>
   <div class="infos">
-    <LineGuide name="Living Lab"/>
-    <LineGuide name="Soft Lab"/>
-    <LineGuide name="4D Space"/>
-    <LineGuide name="Fablab"/>
+    <LineGuide name="Foodtech"/>
+    <LineGuide name="Biolab"/>
+    <LineGuide name="Electronic"/>
+    <LineGuide name="WaterBar"/>
     <LineGuide name="Snook"/>
     <LineGuide name="Elevators"/>
     <LineGuide name="Mirror"/>
