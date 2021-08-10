@@ -10,6 +10,7 @@ export default new Vuex.Store({
 
     // choice in the guide mode
     guideTable: [0, 0, 0, 0, 0, 0, 0],
+
     // identifications
     robotOnline: false,
     robotName: 'MK2R2_1',
@@ -51,6 +52,14 @@ export default new Vuex.Store({
       } else {
         this.state.modeTable = [0, 0, 0, 0, 0, 0, 0];
         this.state.modeTable[mode] = 1;
+      }
+    },
+    changingGuide(state, mode) {
+      if (this.state.guideTable[mode] === 1) {
+        this.state.guideTable = [0, 0, 0, 0, 0, 0, 0];
+      } else {
+        this.state.guideTable = [0, 0, 0, 0, 0, 0, 0];
+        this.state.guideTable[mode] = 1;
       }
     },
     startWaiting(state) {

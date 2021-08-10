@@ -1,7 +1,7 @@
 <template>
   <div class="line">
     {{name}}
-    <div id="go" v-on:click="changeMode(name)" :class="{ going: !going}">GO</div>
+    <div id="go" v-on:click="changeMode(name)" :class="{ going: isGoing()}">GO</div>
   </div>
 </template>
 
@@ -10,11 +10,10 @@ export default {
   name: 'LineGuide',
   data() {
     return {
-      going: true,
     };
   },
   props: {
-    modeName: String,
+    modeName: Number,
     name: String,
   },
   methods: {
@@ -42,12 +41,18 @@ export default {
       return this.name;
     },
     changeMode(coordinates) {
-      this.going = !this.going;
-      if (!this.going) {
+      this.$store.commit('changingGuide', this.modeName);
+      if (this.isGoing()) {
         this.navigation(coordinates);
       } else {
         this.navigation('0', true);
       }
+    },
+    isGoing() {
+      if (this.$store.state.guideTable[this.modeName] === 1) {
+        return true;
+      }
+      return false;
     },
   },
 };

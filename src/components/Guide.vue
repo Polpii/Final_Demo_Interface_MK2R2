@@ -1,12 +1,12 @@
 <template>
   <div class="infos">
-    <LineGuide name="Foodtech"/>
-    <LineGuide name="Biolab"/>
-    <LineGuide name="Electronic"/>
-    <LineGuide name="WaterBar"/>
-    <LineGuide name="Snook"/>
-    <LineGuide name="Elevators"/>
-    <LineGuide name="Mirror"/>
+    <LineGuide name="Foodtech" :modeName="0"/>
+    <LineGuide name="Biolab" :modeName="1"/>
+    <LineGuide name="Electronic" :modeName="2"/>
+    <LineGuide name="WaterBar" :modeName="3"/>
+    <LineGuide name="Snook" :modeName="4"/>
+    <LineGuide name="Elevators" :modeName="5"/>
+    <LineGuide name="Mirror" :modeName="6"/>
   </div>
 </template>
 
